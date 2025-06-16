@@ -1,0 +1,38 @@
+<h1>Amazon.in</h1>
+<ul>
+  <li>
+    <a [routerLink]="['fresh']" [routerLinkActive]="['active']">Fresh</a>
+  </li>
+  <li>
+    <a [routerLink]="['mobiles']" [routerLinkActive]="['active']">Mobiles</a>
+  </li>
+  <li>
+    <a [routerLink]="['computers']" [routerLinkActive]="['active']">Computer</a>
+  </li>
+  <li>
+    <a [routerLink]="['toys']" [routerLinkActive]="['active']">Toys</a>
+  </li>
+</ul>
+<router-outlet></router-outlet>
+ <h2>{{id}}</h2>   
+ <h3>{{username}}</h3>  
+ <h4>{{city}}</h4>   
+<h5>{{getTitle1()}}</h5>
+
+<button (click)="saveData()">Click here</button> 
+<button [disabled]=isDisabled>click here</button>
+<ul>
+  <li>
+    <input  [(ngModel)]="id" type="text"/> 
+{{id}} 
+</li>
+<li>
+ <input  [(ngModel)]="username" type="text"/> 
+ {{username}} 
+ </li>
+ <li>
+<input  [(ngModel)]="city" type="text"/> 
+{{city}} 
+ </li>
+</ul>
+<app-person></app-person>

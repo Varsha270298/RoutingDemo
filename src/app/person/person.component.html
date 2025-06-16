@@ -1,0 +1,78 @@
+<form [formGroup]="personForm" (ngSubmit)="onSubmit()">
+    <div>
+      
+         <label for="firstname">First Name </label>
+         <input type="text" id="firstname" name="firstname" formControlName="firstname">
+        <div *ngIf="!firstname?.valid && (firstname?.dirty || firstname?.touched)">
+           <div [hidden]="!firstname?.errors?.['required']">
+               First name is required
+           </div>
+      
+          
+        </div>
+      
+       </div>
+      
+      
+       <div>
+         <label for="lastname">Last Name </label>
+         <input type="text" id="lastname" name="lastname" formControlName="lastname">
+      
+         <div *ngIf="!lastname?.valid && (lastname?.dirty || lastname?.touched)">
+           <div [hidden]="!lastname?.errors?.['required']">
+               Last name is required
+           </div>
+      
+          
+        </div>
+      </div>
+      
+   <div>
+         <label for="email">Email </label>
+         <input type="text" id="email" name="email" formControlName="email">
+      
+       <div *ngIf="!email?.valid && (email?.dirty || email?.touched)">
+           <div [hidden]="!email?.errors?.['required']">
+              Email is required
+           </div>
+      
+           <div [hidden]="!email?.errors?.['email']">
+               Please enter a valid email id
+            </div>
+      
+        </div>
+       <div>
+         <label for="gender">Geneder </label>
+         <input type="radio" value="male" id="gender" name="gender" formControlName="gender"> Male
+         <input type="radio" value="female" id="gender" name="gender" formControlName="gender"> Female
+         <div *ngIf="!gender?.valid && (gender?.dirty || gender?.touched)">
+            <div [hidden]="!gender?.errors?.['required']">
+               gender is required
+            </div>
+          </div>
+       
+      
+      
+      
+       <div>
+         <label for="country">country </label>
+         <select id="country" name="country"  formControlName="country">
+            </select>
+         <option *ngFor="let country of countries" [ngValue]="country" >{{country.countryName}}</option>
+        <div [hidden]="!country?.errors?.['required']">
+               gender is required
+            </div>
+          </div>
+                
+           
+        
+       
+      {{personForm.valid}}
+       <p>
+         <button [disabled]="!personForm.valid">Submit</button>
+       </p>
+      
+    
+   
+    
+     
